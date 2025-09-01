@@ -1,0 +1,16 @@
+*.a
+*.o
+*.out
+a.out
+.DS_Store
+*.dSYM
+test.c
+main.c
+test
+*.txt
+.vscode
+.idea/
+*.code-workspace
+settings.json
+cscope.*
+tags
