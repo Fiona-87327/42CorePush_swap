@@ -6,12 +6,13 @@
 /*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:24:25 by jiyan             #+#    #+#             */
-/*   Updated: 2025/09/04 20:50:57 by jiyan            ###   ########.fr       */
+/*   Updated: 2025/09/04 21:21:38 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 # include <ctype.h>
 # include <errno.h>
 # include <fcntl.h>
@@ -40,3 +41,5 @@ typedef struct s_stack
 	int				size;
 	t_node			*top;
 }					t_stack;
+
+#endif
