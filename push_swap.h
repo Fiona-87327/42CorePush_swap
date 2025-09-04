@@ -6,7 +6,7 @@
 /*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 20:24:25 by jiyan             #+#    #+#             */
-/*   Updated: 2025/09/01 20:38:57 by jiyan            ###   ########.fr       */
+/*   Updated: 2025/09/04 20:50:57 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,12 @@
 
 typedef struct s_node
 {
-	int				data;
+	int				value;
 	struct s_node	*next;
-	struct s_node	*prev;
 }					t_node;
 
-typedef struct s_deque
+typedef struct s_stack
 {
-	t_node			*front;
-	t_node			*rear;
 	int				size;
-}					t_deque;
-
-typedef struct s_info
-{
-	t_deque			*a;
-	t_deque			*b;
-	int				*sorted_arr;
-	int				size;
-}					t_info;
-
-t_deque				*create_deque(void);
-t_node				*create_node(int data);
-void				push_front(t_deque *deque, int data);
-void				push_rear(t_deque *deque, int data);
-int					pop_front(t_deque *deque);
-int					pop_rear(t_deque *deque);
-int					peek_front(t_deque *deque);
-int					peek_rear(t_deque *deque);
-bool				is_empty(t_deque *deque);
-void				free_deque(t_deque *deque);
+	t_node			*top;
+}					t_stack;
