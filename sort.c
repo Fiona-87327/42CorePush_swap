@@ -12,4 +12,14 @@
 
 #include "push_swap.h"
 
+static void	append_node(t_stack **stack, int n)
+{
+}
 
+void	init_stack_a(t_stack_node **a, char **argv)
+{
+}
+
+void	init_stack_a(t_stack_node **a, char **argv)
+{
+}
