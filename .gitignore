@@ -13,3 +13,5 @@ test
 settings.json
 cscope.*
 tags
+push_swap
+obj/
