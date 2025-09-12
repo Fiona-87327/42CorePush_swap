@@ -1,31 +1,42 @@
-NAME = push_swap
+NAME        = push_swap
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
+INCLUDES    = -Iincludes
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I ./libft/incl -I ./libft
+SRC_DIR     = src
+OBJ_DIR     = obj
 
-SRCS = push_swap.c sort.c utils.c
-OBJS = $(SRCS:.c=.o)
+SRCS = \
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/parse.c \
+	$(SRC_DIR)/utils.c \
+	$(SRC_DIR)/stack.c \
+	$(SRC_DIR)/ops_swap.c \
+	$(SRC_DIR)/ops_push.c \
+	$(SRC_DIR)/ops_rotate.c \
+	$(SRC_DIR)/ops_rev_rotate.c \
+	$(SRC_DIR)/index.c \
+	$(SRC_DIR)/sort_small.c \
+	$(SRC_DIR)/sort_big.c
 
-LIBFT = ./libft/libft.a
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -f $(OBJS)
-	$(MAKE) -C ./libft clean
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C ./libft fclean
-
-$(LIBFT):
-	$(MAKE) -C ./libft
+	@rm -f $(NAME)
 
 re: fclean all
 
